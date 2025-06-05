@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hazard Control Hierarchy</title>
+    <title>Hierarchy of Controls</title>
     <style>
         body {
-            font-family: sans-serif;
-            background-color: #F2F2F2; /* Light background */
-            color: #532A8C; /* Dark purple text */
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F2F2F2;
+            color: #532A8C;
             margin: 20px;
         }
 
@@ -21,7 +21,7 @@
         }
 
         .accordion-item {
-            border-bottom: 1px solid #9D8ABB; /* Lighter purple border */
+            border-bottom: 3px solid white; /* Thicker white line */
         }
 
         .accordion-item:last-child {
@@ -29,8 +29,8 @@
         }
 
         .accordion-header {
-            background-color: #7ABF49; /* Green for header */
-            color: #FFFFFF; /* White text for header */
+            background-color: #7ABF49;
+            color: #FFFFFF;
             padding: 15px 20px;
             cursor: pointer;
             display: flex;
@@ -42,7 +42,7 @@
         }
 
         .accordion-header:hover {
-            background-color: #96BF78; /* Lighter green on hover */
+            background-color: #96BF78;
         }
 
         .accordion-header::after {
@@ -53,12 +53,12 @@
 
         .accordion-header.active::after {
             content: '-';
-            transform: rotate(0deg); /* No rotation needed for '-' */
+            transform: rotate(0deg);
         }
 
         .accordion-content {
-            background-color: #F2F2F2; /* Light background for content */
-            color: #532A8C; /* Dark purple text for content */
+            background-color: #F2F2F2;
+            color: #532A8C;
             padding: 0 20px;
             max-height: 0;
             overflow: hidden;
@@ -70,18 +70,26 @@
             line-height: 1.6;
         }
 
-        /* When active, show content */
         .accordion-header.active + .accordion-content {
-            max-height: 200px; /* Adjust as needed, large enough to fit content */
+            max-height: 200px;
             padding-top: 15px;
             padding-bottom: 15px;
         }
+
+        img {
+            max-width: 100%; /* Make image responsive */
+            height: auto;
+            display: block;
+            margin: 20px auto; /* Center the image */
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="accordion-container">
-        <h1>Hazard Control Hierarchy</h1>
+        <h1>Hierarchy of Controls</h1>
+        <img src="http://googleusercontent.com/image_generation_content/0" alt="Hierarchy of Controls">
 
         <div class="accordion-item">
             <div class="accordion-header">Elimination</div>
