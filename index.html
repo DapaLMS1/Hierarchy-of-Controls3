@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazard Control Hierarchy</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #F2F2F2; /* Light background */
+            color: #532A8C; /* Dark purple text */
+            margin: 20px;
+        }
+
+        .accordion-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #9D8ABB; /* Lighter purple border */
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background-color: #7ABF49; /* Green for header */
+            color: #FFFFFF; /* White text for header */
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #96BF78; /* Lighter green on hover */
+        }
+
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active::after {
+            content: '-';
+            transform: rotate(0deg); /* No rotation needed for '-' */
+        }
+
+        .accordion-content {
+            background-color: #F2F2F2; /* Light background for content */
+            color: #532A8C; /* Dark purple text for content */
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .accordion-content p {
+            padding-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        /* When active, show content */
+        .accordion-header.active + .accordion-content {
+            max-height: 200px; /* Adjust as needed, large enough to fit content */
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="accordion-container">
+        <h1>Hazard Control Hierarchy</h1>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Elimination</div>
+            <div class="accordion-content">
+                <p>This means removing the hazard entirely. For example, if cluttered walkways are a problem, remove the clutter.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Substitution</div>
+            <div class="accordion-content">
+                <p>Replace the hazardous item or process with a safer alternative. In a dental setting, this could mean using single-dose dental materials instead of bulk supplies that require manual dispensing.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Engineering Controls</div>
+            <div class="accordion-content">
+                <p>These involve modifying the workspace or equipment to reduce or prevent exposure to hazards. Examples include ergonomic dental stools, preset chair controls, and proper ventilation systems.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Administrative Controls</div>
+            <div class="accordion-content">
+                <p>These are changes to work practices that minimise exposure to hazards. They include training, job rotation, scheduled breaks, and limiting access to hazardous areas.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">Personal Protective Equipment (PPE)</div>
+            <div class="accordion-content">
+                <p>This is the last line of defence, including gloves, masks, eye protection, and hearing protection. PPE should be used in conjunction with other controls, not as the sole solution.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const currentlyActive = document.querySelector('.accordion-header.active');
+                    if (currentlyActive && currentlyActive !== this) {
+                        currentlyActive.classList.remove('active');
+                        currentlyActive.nextElementSibling.style.maxHeight = null;
+                        currentlyActive.nextElementSibling.style.paddingTop = '0';
+                        currentlyActive.nextElementSibling.style.paddingBottom = '0';
+                    }
+
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        content.style.paddingTop = '0';
+                        content.style.paddingBottom = '0';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 30 + 'px'; // +30 for padding
+                        content.style.paddingTop = '15px';
+                        content.style.paddingBottom = '15px';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
